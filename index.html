@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Ladies Learning Code</title>
+		<title>A Responsive jQuery Image Slider </title>
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -26,6 +26,7 @@
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
 		</script>
+		<script src="content/js/jquery-1.11.1.js"></script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -48,52 +49,278 @@
 				</section>
 				<!-- each <section> element creates a new slide. -->
 				<section class="cover">
-					<h1>Introduction to HTML and CSS</h1>
+					<h1>Creating A Responsive Image Slider With jQuery</h1>
 					<div class="instructors">
 						<h2>Your Instructor:</h2>
 						<ul>
 							<li>
-								<img src="content/images/heather_avatar.jpg" alt="">
+								<img src="content/images/arron_avatar.jpg" alt="">
 								<div class="instructor-info">
-									<h3>Heather Payne</h3>
-									<p>heather@heatherpayne.ca</p>
-									<p><a href="http://heatherpayne.ca">heatherpayne.ca</a></p>
-									<p><a href="https://twitter.com/heatherpayne">@heatherpayne</a></p>
-								</div>
-							</li>
-							<li>
-								<img src="content/images/heather_avatar.jpg" alt="">
-								<div class="instructor-info">
-									<h3>Heather Payne</h3>
-									<p>heather@heatherpayne.ca</p>
-									<p><a href="http://heatherpayne.ca">heatherpayne.ca</a></p>
-									<p><a href="https://twitter.com/heatherpayne">@heatherpayne</a></p>
+									<h3>Arron Gibson</h3>
+									<h4>Director of Digital Projects: Viva &amp; Co.</h4>
+									<p><a href="mailto:Arron@ViVAandCo.com"></a></p>
+									<p><a href="http://ViVAandCo.com">ViVAandCo.com</a></p>
+									<p><a href="http://ArronGibson.com">ArronGibson.com</a></p>
+									<p>Twitter: <a href="https://twitter.com/ArronGibson">@ArronGibson</a></p>
 								</div>
 							</li>
 						</ul>
-						<div class="credits">
+<!-- 						<div class="credits">
 							<p>Thanks to <a href="#">Pearl Chen</a> and <a href="#">Mark Reale</a> for creating the foundation for today's content</p>
 						</div>
-					</div>
+ -->					</div>
 
 				</section>
 
+				<section data-markdown>
+<!-- Markdown Needs there to be no whitespace on the left of lines. -->
+## Syllabus
+
+* What Is HTML?
+* What Is CSS?
+* What Is JS?
+* What Is A Rotator?
+    * What Does It Do?
+    * What Options Does It Have?
+    * How Do I Build One?
+
+
+				</section>
+				<section data-markdown>
+
+## What Is HTML?
+
+HTML (HyperText Markup Language) is the **content** of your document. Using ```&lt;tags>``` we can create **elements** that represent items on our page.  Items like paragraphs.
+
+	&lt;p>Paragraph Text&lt;/p>
+
+Lists
+
+	&lt;ul>
+		&lt;li>List Item&lt;/li> 
+		&lt;li>List Item&lt;/li> 
+		&lt;li>List Item&lt;/li>
+	&lt;/ul> 
+
+and images
+
+	&lt;img src="http://www.fillmurray.com/300/300" alt="Placeholder Image" />
+
+				</section>
 				<section>
-					<h1>Example Course Outline</h1>
-					<h2>Morning</h2>
-					<ul>
-						<li>Intro to HTML</li>
-						<li>Write the HTML for your first project</li>
-						<li>Intro to CSS</li>
-					</ul>
-					<h2>Afternoon</h2>
-					<ul>
-						<li>More CSS</li>
-						<li>Final touches</li>
-						<li>Fin! And next steps</li>
-					</ul>
+
+<h2> By placing these items together on a page we get something that looks like this: </h2>
+
+<p>Paragraph Text</p>
+<ul>
+<li>List Item</li> 
+<li>List Item</li> 
+<li>List Item</li>
+</ul> 
+<p><img src="http://www.fillmurray.com/300/300" alt="Placeholder Image" /></p>
+
+				</section>
+				<section data-markdown>
+## What Is CSS?
+
+CSS (Cascading Style Sheets) are the **style** of your document. They help control the look and feel of the document. You create **selectors** that target **HTML Elements** and then use **CSS Rules** to change the look and feel of your document.
+
+Selectors like:
+
+	p { /* CSS Rules Here */ } 
+
+Which targets all paragraphs, or:
+
+	.rotator-slide { /* CSS Rules Here */ } 
+
+Which targets *any* element with class="rotator-slide", or:
+
+	#rotator { /* CSS Rules Here */ } 
+
+Which targets *any* element with id="rotator".
+					
+				</section>
+				<section>
+<p>
+	
+<strong>CSS Rules</strong> go inside the {curly braces} that follow the **CSS Selector** and they look like this:
+</p>
+<pre><code> p {
+	font-size: 2em;
+	color: red;
+} </code></pre>
+<p> Which will apply the font size of <strong>2em</strong> and color of <strong>red</strong> to all paragraphs. </p>
+
+<p style="font-size: 2em; color: red;">This is a paragraph with the styles above applied to it.</p>
+
+				</section>
+				<section data-markdown>
+## What Is JS?
+
+JS (JavaScript) controls the **behavior** of your document. It allows you to do things such as animate items, hide or show items, react to user input and even process data and perform other general programming tasks.
+
+JS can look like this:
+
+	var myVariable = "Hello World";
+
+That line will create a variable called **myVariable** and assign it a value of **hello** (without the quotes).
+
+The structure and syntax of the language of JavaScript is much more complex than either HTML or CSS.  
+
+This is because neither HTML nor CSS are full fledged programming languages.  Neither of them have **variables**, **functions**, **objects** or **control structures** such as **if** statements or **loops**.  JavaScript has *all* of these.
+
+
+
+				</section>
+				<section data-markdown>
+
+# So what *are* **variables**, **functions**, **objects** and **control structures** such as **if** statements or **loops**?
+
+They are the basic building blocks of programming!
+
+Because this session is only an hour and a half, and because we have a *specific* goal in mind we will not be going to great detail about all of these and exactly what they are and what they do.  We will however be talking about them briefly.  Enough so that we can understand what our image rotator is doing on a basic level.
+
+				</section>
+				<section data-markdown>
+# Variables
+
+## What *is* a variable?
+
+A variable is a storage location and an associated symbolic name (an identifier) which contains some known or unknown quantity or information, a value.
+
+### In *English* professor.
+
+At its most basic we make a variable when we give a **name** to a **value**.  So when we say:
+
+	var myVariable = "Hello World";
+
+We are taking the value ```hello``` and giving it the name ```myVariable```.  
+				</section>
+				<section data-markdown>
+## Variable Types
+
+Variable *values* can be one of several different **types**.  In this case, a value with text in it is called a **string** value.
+
+	var myVariable = "Hello World";
+
+Variables can also contain numbers,
+ 
+	var meaningOfLife = 42; // Whole numbers are called 'integers'
+	var valueOfPi = 3.14; // Numbers with decimal places are called 'floats'
+
+Variables that contain true / false values are called **booleans**
+
+	var isJavaScriptCool = true;
+	var isJavaScriptLame = false;
+
+				</section>
+				<section data-markdown>
+## Variable Types
+
+Variable can even hold lists of values (the list values themselves being **types** like strings or booleans) in what is called an **array**
+
+	var myFavoriteThings = [
+		"Raindrops On Roses",
+		"Whiskers On Kittens",
+	];
+
+We will not go into an exhaustive list here but it is important that you understand that variables hold values and the values themselves have types.
+
+
+				</section>
+				<section>
+
+<h2> Using a variable </h2>
+
+<p>The first time we create a variable we do so by using the JavaScript keyword <strong>var</strong></p>
+
+<pre><code>var myVariable = "Hello World";</code></pre>
+
+<p>That line of code will create a new variable called <strong>myVariable</strong> and assign it the <strong>string</strong> value of <strong>Hello World</strong></p>
+
+<pre><code class="javascript">// Let's break this down.
+	var myVariable = "Hello World";
+/*	 |       |     |       └ The String Value "Hello World".
+	 |       |     └ The 'assignment' opperator - A single equals sign.
+	 |       └ The Variable Name "myVariable".
+	 └ The 'var' keyword.
+*/
+</code></pre>
+<p>The var keyword is only needed when you <strong>first create the variable</strong>.  You do not need to use the <strong>var</strong> keyword again later when referencing or manipulating the variable.</p>
+				</section>
+				<section>
+
+<h2> Using a variable </h2>
+
+<p>After we have assigned the variable a value we can now use that variable the same way we would use the value.  Let's take the following code:</p>
+
+<pre><code>var myVariable = "Hello World";
+alert(myVariable);
+</code></pre>
+
+<p> That code would make an alert box like the one you will see if you click the button below</p> 
+<p><button id="example-1">Click here to view the alert box</button> </p>
+<script>
+	$(function(){
+		$("#example-1").click(function(event) {
+			alert("Hello World");
+		});
+	});
+</script>
+
+<p>This uses the built in JavaScript <strong> function </strong> called 'alert', which creates a popup message that the user <em>must</em> dismiss or acknolwedge before continuing any interaction with the page.</p>
+
+
+				</section>
+				<section data-markdown>
+
+# JavaScript Functions
+
+if a variable is a **name** for a **value**, then a function is a **name** for a set of commands or instructions.  For example:
+```javascript
+function sayHello(){
+	/*
+	There can be many commands here in between the two {curly braces}
+	Let's make the first command an alert to the user.
+	*/ 
+	alert('Hello World');
+}
+```
+This creates a new **function** called "sayHello" which, when invoked, will execute the **alert** function that comes built into javascipt.
+
+The **alert** function is a **Built In Function** and the **sayHello** function is a **User Defined Function**.  The only differnce between them is that you don't have to write a built in function, it comes for free as a part of javascript.
+				</section>
+				<section data-markdown>
+
+# Title
+
+
+				</section>
+				<section data-markdown>
+
+# Title
+
+
+				</section>
+				<section data-markdown>
+
+# Title
+
+
+				</section>
+				<section data-markdown>
+
+# Title
+
+
 				</section>
 
+
+
+
+
+
+				
 				<section class="center">
 					<h1>This slide is centered because it has the class "center" on the &lt;section> element!</h1>
 				</section>
