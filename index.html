@@ -254,7 +254,7 @@ We will not go into an exhaustive list here but it is important that you underst
 
 <p>That line of code will create a new variable called <strong>myVariable</strong> and assign it the <strong>string</strong> value of <strong>Hello World</strong></p>
 
-<pre><code class="JavaScript">// Let's break this down.
+<pre><code class="javascript">// Let's break this down.
 	var myVariable = "Hello World";
 /*	 |       |     |       └ The String Value "Hello World".
 	 |       |     └ The 'assignment' opperator - A single equals sign.
@@ -292,7 +292,7 @@ alert(myVariable);
 # JavaScript Functions
 
 if a variable is a **name** for a **value**, then a function is a **name** for a set of commands or instructions.  For example:
-```JAVASCRIPT
+```javascript
 function sayHello(){
 	/*
 	There can be many commands here in between the two {curly braces}
@@ -315,7 +315,7 @@ Functions can be used to make your life a LOT easier once you get used to how to
 
 Using the code from our previous slide:
 
-```JAVASCRIPT
+```javascript
 function sayHello(){
 	alert("Hello World");
 }
@@ -333,7 +333,7 @@ This introduces an important concept with functions called **parameters**.
 
 **Parameters** are data that you pass to a function that becomes available for use IN that function as a variable.  Let's say that rather than simply saying "Hello World", you might want to say something else, or many other things.  Let's see what that might look like:
 
-```JAVASCRIPT
+```javascript
 function sayAnything(message){
 	alert(message);
 }
@@ -341,7 +341,7 @@ function sayAnything(message){
 
 Now if we wanted to use that code we could do this:
 
-```JAVASCRIPT
+```javascript
 sayAnything("Check out my cool new boombox!");
 ```
 Which would cause the browser to pop up that message. [Or any other message we wanted to say](#example_2).
@@ -352,7 +352,7 @@ Which would cause the browser to pop up that message. [Or any other message we w
 
 A function is one of the most powerful tools in JavaScript and one of the most powerful functions you will ever use is this one:
 
-```JAVASCRIPT
+```javascript
 jQuery();
 ```
 				</section>
@@ -361,7 +361,7 @@ jQuery();
 
 A function is one of the most powerful tools in JavaScript and one of the most powerful functions you will ever use is this one:
 
-```JAVASCRIPT
+```javascript
 jQuery();
 ```
 ## So *what is* **jQuery** anyways?
@@ -475,7 +475,7 @@ Using Sublime Text, or whatever text editor you are comfortable with & have been
 <h2>What did we just do?</h2>
 
 <p>Let's have a look.</p>
-<pre><code class="JavaScript">// Let's break this down.
+<pre><code class="javascript">// Let's break this down.
 &lt;script src="js/jquery-1.11.1.min.js"&gt;&lt;&#47;&#115;cript&gt;
 /*  |    |                 |              └ The closing 'script' tag.
     |    |                 └ The location of the JS file.
@@ -498,52 +498,177 @@ Using Sublime Text, or whatever text editor you are comfortable with & have been
 
 That's because the jQuery library on its own doesn't DO anything, it simply gives you the tools to do something. What we do is up to us.
 
-Now that jQuery in on the page we can use the **jQuery();** function which is the real magic of jQuery.
-				</section>
-				<section class="center">
-					<h1>This slide is centered because it has the class "center" on the &lt;section> element!</h1>
+Now that jQuery is on the page we can use the **jQuery();** function which is the real magic of jQuery.
 				</section>
 
+				<section data-markdown> 
+# Using jQuery and the jQuery(); function
+
+The basic idea of jQuery is that you target some item on the page and then add or change the behavior of that item.
+
+For instance you could take a dropdown button in a menu and set it so that when it is hovered over, a new menu slides down from the top.  That might look like this:
+
+```javascript
+jQuery(".nav button.view-menu").hover(function(){
+	jQuery(".nav .more-menu").slideDown();
+}, function(){
+	jQuery(".nav .more-menu").slideUp();
+});
+```
+				</section>
+				<section data-markdown> 
+# Using jQuery and the jQuery(); function
+
+You could also make it so that when clicking on a button to dismiss a popup, you remove an element from the document.
+ 
+```javascript
+jQuery(".dialog .dismiss").click(function(){
+	jQuery(this).parent().remove();
+});
+```
+
+These are just simple examples.  With jQuery and a little imagination the possibilities are endless.
+				</section>
+				<section data-markdown> 
+# How to select an item with jQuery(); 
+## (So you can alter its behavior)
+
+the ```jQuery();``` function takes a single parameter:  A string containing a CSS style selector indicating what item, or items, on the page the select.
+
+Some examples:
+
+```javascript
+jQuery("ul li.even");
+/*
+	The line abaove selects all list items, with a class of "even" 
+	in an any unordered list.
+*/ 
+jQuery("#rotator .slide:first");
+/*
+	The line abaove selects the first item with a class of "slide" 
+	inside the item with an id of "rotator".
+*/ 
+``` 
+				</section>
+				<section data-markdown> 
+# How to select an item with jQuery(); 
+## (So you can alter its behavior)
+
+The HTML items or your page that match your selector are added into something called the **wrapped set**.  This is a special grouping of items that jQuery uses to know what items to alter or add behavior to.
+
+When you run a jQuery **method** the items in the **wrapped set** are the ones that will be altered or effected.
+				</section>
+				<section> 
+<h1> jQuery Methods </h1>
+<p> the jQuery library comes with many many MANY different methods.  We won't discuss all of them here but if you want to see them all, and how to use them, you can go to <a href="http://api.jquery.com" target-"_blank">api.jquery.com</a>.</p>
+<p>We will discuss a few methods here and a few more once we start making our rotator.</p>
+<ul>
+	<li>the <strong>.hide();</strong> method will hide all elements in the wrapped set.</li>
+	<li>the <strong>.show();</strong> method will show all elements in the wrapped set.</li>
+	<li>the <strong>.css();</strong> method allows you to alter the look of the elements in the wrapped set by passing two parameters.  The CSS property you want to edit and the new value of that property</li>
+</ul>
+
+				</section>
+				<section data-markdown> 
+
+# jQuery Methods
+
+For example:
+
+```javascript
+jQuery(".alert").css("color", "red");</code></pre>
+```
+Will take elements with a class of alert and make the text in them red.
+
+This by no means an exhaustive list, we will take notice when we intruduce new methods as we go on.
+				</section>
+				<section data-markdown> 
+# One last thing before we get into it the rotator.
+
+## Timing.
+
+Your webpage, like all webpages, gets downloaded by the browser.  The browser downloads the page from top to bottom and when it see any javascript, it runs it.  Right then and there.  So if you add this:
+```javascript 
+jQuery("p.highlight").css("background-color", "yellow");
+```
+and then later in the page you put
+
+```html
+&lt;p class="highlight">This is an important highlighted paragraph&lt;/p>
+```
+The javascript code will run BEFORE the browser will even see the paragraph tag.  That means that jQuery won't match the element and won't make it's background color yellow!
+
+				</section>
+				<section data-markdown> 
+# Enter Document Ready
+
+Document ready is an event.  It's a point in time when the browser has downloaded enough of your page that it has seen all your tags and it can find them based off of the CSS selectors that you tell jQuery.
+
+Running that same code on the **document ready** event looks like this:
+```javascript
+jQuery(document).ready(function(){
+	jQuery("p.highlight").css("background-color", "yellow");
+});
+```
+Document Ready is a little bit of a complex idea and again because we only have a small amount of time we won't explain how it works in great detail here.  Just trust me, you need it if you want your code to work. 
+				</section>
 				<section>
-					<h1>A slide with an Image</h1>
-					<img src="content/images/blank_output.jpg">
-				</section>
+<p> Go to your project in your text editor and find where we added the following line: </p>
+<pre><code class="HTML">&lt;script src="js/jquery-1.11.1.min.js"&gt;&lt;&#47;&#115;cript&gt;
+</code></pre>
+<p>and <strong> after that </strong> add this:</p>
+<pre><code class="HTML">&lt;script&gt;
+jQuery(document).ready(function(){
+	// Add all jQuery code here.
+});
+&lt;&#47;&#115;cript&gt;
+</code></pre>
 
-				<section>
-					<h1>A slide with some HTML Code</h1>
-					<pre><code>
-<!-- remember to escape the < character -->
-&lt;!doctype html>
-&lt;head>
-  &lt;title>Ladies Learning Code HTML and CSS&lt;/title>
-  &lt;style>
-    p {
-    color: red;
-    text-decoration: underline;
-    }
-  &lt;/style>
-&lt;/head>
-&lt;body>
-  &lt;p>This is a paragraph&lt;/p>
-&lt;/body>
-&lt;/html>
-					</code></pre>
+<p>That area is where we will add ALL of our jQuery code going forward.  When I say "Add this code to your document ready function" that is where I mean.</p>
+<pre><code class="HTML">&lt;script&gt;
+jQuery(document).ready(function(){
+	// Right Here. your code goes right here.
+});
+&lt;&#47;&#115;cript&gt;
+</code></pre>
 				</section>
-
 				<section data-markdown>
-					# You can write your slides in mardown if you add the `data-markdown` attribute
-
-					- markdown makes it a bit easier to write content for the web
-					- learn more about [markdown syntax](https://daringfireball.net/projects/markdown/syntax)
-
-					## A level 2 header in markdown
-
-					```
-						\\ some code in markdown
-					```
+# Finally...
+## We get to the image rotator
 				</section>
+				<section data-markdown>
+# Finally...
+## We get to the image rotator
 
-				<!-- end editable section -->
+So, What IS an image rotator?
+
+At it's most basic, a rotator is a list of images that uses javascript to show one, then another, then another...  SO if we used HTML like this:
+
+```html
+&lt;div id="rotator">
+	&lt;ul class="slides">
+		&lt;li>&lt;img src="rotator/image1.jpg" alt="First Slide">&lt;/li>
+		&lt;li>&lt;img src="rotator/image2.jpg" alt="Second Slide">&lt;/li>
+		&lt;li>&lt;img src="rotator/image3.jpg" alt="Third Slide">&lt;/li>
+	&lt;/ul>
+&lt;/div>
+```
+
+The javascript would show the first and hide the rest. Then, after a couple of seconds,  show the second and hide the rest.  Then keep going until all of the slides have been shown.  Then start again at the beginning. 
+				</section>
+				<section data-markdown> 
+# Title
+				</section>
+				<section data-markdown> 
+# Title
+				</section>
+				<section data-markdown> 
+# Title
+				</section>
+				<section data-markdown> 
+# Title
+
+				</section>
 
 			</div>
 
