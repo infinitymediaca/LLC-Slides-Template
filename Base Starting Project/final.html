@@ -105,6 +105,19 @@
       font-family: 'Oswald', sans-serif;
     }
   </style>
+
+  <script src="js/jquery-1.11.1.min.js"></script> 
+  <script src="js/flexslider/jquery.flexslider-min.js"></script>
+  <link rel="stylesheet" href="js/flexslider/flexslider.css">
+  <script>
+  $(document).ready(function(){
+    // Add all jQuery code here.
+    $('.flexslider').flexslider({
+      // animation: "slide"
+    });
+  });
+  </script>
+
 </head>
 <body>
   <ul class="menu">
@@ -116,6 +129,24 @@
     <img class="logo" src="images/logo.png">
     <h1>Your name here</h1>
     <p>Your tagline here</p>
+  </section>
+  <section id="rotator" class="rotator box">
+    <div class="flexslider">
+      <ul class="slides">
+        <li>
+          <img src="images/rotator-1.jpg" alt="Rotator Image 1">
+          <p class="flex-caption"><p> Slide Caption 1 </p> </p>
+        </li>
+        <li>
+          <img src="images/rotator-2.jpg" alt="Rotator Image 2">
+          <p class="flex-caption"><p> Slide Caption 2 </p> </p>
+        </li>
+        <li>
+          <img src="images/rotator-3.jpg" alt="Rotator Image 3">
+          <p class="flex-caption"><p> Slide Caption 3 </p> </p>
+        </li>
+      </ul>
+    </div>
   </section>
   <section id="about" class="about box">
     <h2>About Me</h2>

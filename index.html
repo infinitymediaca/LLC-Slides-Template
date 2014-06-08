@@ -27,6 +27,8 @@
 			}
 		</script>
 		<script src="content/js/jquery-1.11.1.js"></script>
+		<script src="content/js/flexslider/jquery.flexslider-min.js"></script>
+		<link href="content/js/flexslider/flexslider.css" rel="stylesheet" type="text/css">
 		<script>
 $(function(){
 	$('body').on('click', 'a[href^="#example"]', function(){
@@ -52,6 +54,7 @@ $(function(){
 		}
 		
 	}, 2000);
+	$('a[href^="http://"]').attr("target", "_blank");
 
 
 });
@@ -75,16 +78,9 @@ $(function(){
 			<div class="slides">
 
 				<!-- begin editable section -->
-				<section class="center">
-					<h1>The Starter Project</h1>
-					<ul>
-						<li><a href="Base Starting Project/final.html">Link to the starter project</a></li>
-						<li>This is the starting project that you'll use to build your content chunks. It's also the project that the learners will come to Hackapalooza with! Make sure your content and code (CSS in particular) is modular so that it doesn't affect other parts of the site—only the parts you're modifying!</li>
-					</ul>
-				</section>
 				<!-- each <section> element creates a new slide. -->
 				<section class="cover">
-					<h1>Creating A Responsive Image Rotator With jQuery</h1>
+					<h1>Creating A Responsive Image <br>Rotator With jQuery</h1>
 					<div class="instructors">
 						<h2>Your Instructor:</h2>
 						<ul>
@@ -115,14 +111,31 @@ $(function(){
 <!-- Markdown Needs there to be no whitespace on the left of lines. -->
 ## Syllabus
 
-* What Is HTML?
-* What Is CSS?
-* What Is JS?
-* What Is jQuery?
-* What Is A Rotator?
+* What Is **HTML**?
+* What Is **CSS**?
+* What Is **JS**?
+* What Is **jQuery**?
+* What Is A **Rotator**?
     * What Does It Do?
     * What Options Does It Have?
     * How Do I Build One?
+
+				</section>
+				<section data-markdown>
+# Checklist for this course
+
+You will Need:
+
+* Your Hackapalooza Project.
+* Sublime Text (or another text editor you like)
+* Images you would like to use for your rotator in your project
+* A sense of adventure!
+
+The first part of this session we will talk about what is acutally going on under the hood.  The concepts behind the technology and why they are important to understand.  This is where we will need our thinking caps.
+
+The second part is where we will actually BUILD our rotator. We will need our elbow grease here.
+
+Are you ready?  Let's go!
 
 
 				</section>
@@ -187,7 +200,7 @@ Which targets *any* element with id="rotator".
 				<section>
 <p>
 	
-<strong>CSS Rules</strong> go inside the {curly braces} that follow the **CSS Selector** and they look like this:
+<strong>CSS Rules</strong> go inside the {curly brackets} that follow the **CSS Selector** and they look like this:
 </p>
 <pre><code> p {
 	font-size: 2em;
@@ -319,7 +332,7 @@ if a variable is a **name** for a **value**, then a function is a **name** for a
 ```javascript
 function sayHello(){
 	/*
-	There can be many commands here in between the two {curly braces}
+	There can be many commands here in between the two {curly brackets}
 	Let's make the first command an alert to the user.
 	*/ 
 	alert("Hello World");
@@ -786,6 +799,7 @@ $(document).ready(function(){
 </p>
 <pre><code class="HTML">&lt;script src="js/jquery-1.11.1.min.js"&gt;&lt;&#47;&#115;cript&gt;
 &lt;script src="js/flexslider/jquery.flexslider-min.js"&gt;&lt;&#47;&#115;cript&gt;
+&lt;link rel="stylesheet" href="js/flexslider/flexslider.css" />
 &lt;script&gt;
 $(document).ready(function(){
 	// Add all jQuery code here.
@@ -794,8 +808,9 @@ $(document).ready(function(){
 </code></pre>
 				</section>
 				<section> 
-<p>notice the addition of the line:</p>
+<p>notice the addition of the lines:</p>
 <pre><code class="HTML">&lt;script src="js/flexslider/jquery.flexslider-min.js"&gt;&lt;&#47;&#115;cript&gt;
+&lt;link rel="stylesheet" href="js/flexslider/flexslider.css" />
 </code></pre>
 <p> in between: </p>
 <pre><code class="HTML">&lt;script src="js/flexslider/jquery.flexslider-min.js"&gt;&lt;&#47;&#115;cript&gt;</code></pre>
@@ -808,11 +823,11 @@ $(document).ready(function(){
 });
 &lt;&#47;&#115;cript&gt;
 </code></pre>
-<p>
-	to make:
-</p>
+</section><section>
+<p> It should look like this: </p>
 <pre><code class="HTML">&lt;script src="js/jquery-1.11.1.min.js"&gt;&lt;&#47;&#115;cript&gt;
 &lt;script src="js/flexslider/jquery.flexslider-min.js"&gt;&lt;&#47;&#115;cript&gt;
+&lt;link rel="stylesheet" href="js/flexslider/flexslider.css" />
 &lt;script&gt;
 $(document).ready(function(){
 	// Add all jQuery code here.
@@ -820,6 +835,7 @@ $(document).ready(function(){
 &lt;&#47;&#115;cript&gt;
 </code></pre>
 
+<p> and it should be in the <code>&lt;head></code> of your hackapalooza project page. </p>
 
 				</section>
 				<section data-markdown> 
@@ -827,8 +843,13 @@ $(document).ready(function(){
 
 You now have averything in place to make your slider. All we have to do after this is:
 
-1. Add the **HTML** needed for the rotator
-2. Trigger flexslider to add new **behavior** to that HTML.
+1. Figure out where on your page you want to put the rotator.
+* Figure out what images you want to use in the rotator
+* Figure out if you want to have captions (Text to accompany each slide in the rotator)
+* Add the **HTML** needed for the rotator
+* Trigger flexslider to add new **behavior** to that HTML.
+				</section>
+				<section data-markdown> 
 
 ### From this point forward...
 
@@ -836,9 +857,237 @@ we will be writing code on our projects that will be individualized to our own n
 
 I will give example **HTML**, **CSS**, **JavaScript** and **jQuery** code but you will need to adapt that code to do *what you want to do for your project*.
 				</section>
-				<section data-markdown> 
-# Title
+				<section> 
+<h1> Next Steps </h1>
 
+<p> The <strong> HTML </strong> </p>
+
+<pre><code class="html">&lt;section id="rotator" class="rotator box">
+  &lt;div class="flexslider">
+    &lt;ul class="slides">
+      &lt;li>
+        &lt;img src="images/rotator-1.jpg" alt="Rotator Image 1">
+        &lt;div class="flex-caption">&lt;p>Slide Caption 1&lt;/p>&lt;/div>
+      &lt;/li>
+      &lt;li>
+        &lt;img src="images/rotator-2.jpg" alt="Rotator Image 2">
+        &lt;div class="flex-caption">&lt;p>Slide Caption 2&lt;/p>&lt;/div>
+      &lt;/li>
+      &lt;li>
+        &lt;img src="images/rotator-3.jpg" alt="Rotator Image 3">
+        &lt;div class="flex-caption">&lt;p>Slide Caption 3&lt;/p>&lt;/div>
+      &lt;/li>
+    &lt;/ul>
+  &lt;/div>
+&lt;/section> </code></pre>
+<p>This is the starter code that you should paste into your page where you want your rotator to go.</p>
+				</section>
+				<section data-markdown>
+# Making it your own.
+
+* Edit the **amount** of list items in the slides list to match the amount of images you will be using.
+* Edit the image **filenames** to point to the images you want to use
+* Edit the **alt** attribute of each image to write a description of that image
+* Edit the captions as you like
+	* If you do not want captions delete the line 
+```html
+&lt;div class="flex-caption">&lt;p>Slide Caption 1&lt;/p>&lt;/div>
+``` 
+from each slide you don't want captions on.
+
+				</section>
+				<section data-markdown>
+# Making it work
+
+In your **Document Ready Function** add the following code to tell flexslider to run:
+
+```javascript
+$('.flexslider').flexslider();
+```  
+Yep,  that's it.
+				</section>
+				<section data-markdown>
+# Making it work
+
+In your **Document Ready Function** add the following code to tell flexslider to run:
+
+```javascript
+$('.flexslider').flexslider();
+```  
+Yep,  that's it.  You should now be able to load your page in your browser now and see your slider in action.
+
+## Let's break that down
+```javascript
+	$('.flexslider').flexslider();
+//  |      |             |     └ Parenthesis indicate a Function Call
+//  |      |             └ The Flexslider Method 
+//  |      └ The CSS selector '.flexslider' will add any items
+//  |          with the class 'flexslider' to the jQuery wrapped set 
+//  └ The jQuery Function
+```
+				</section>
+				<section data-markdown>
+# Making it work
+## The way you want it to.
+
+Some of Flexslider's available options:
+
+* Animation Type
+	* **fade** or **slide**
+* Slideshow Speed
+	* The Amount of time, in milliseconds, between slides.
+* Animation Loop
+	* When you get to the last slide should you go back to the start?
+
+There are many more options, [see a complete list on this page](http://www.woothemes.com/flexslider/), but let's look at how to set them. 
+				</section>
+				<section data-markdown>
+# Using A Configuration Object with Flexslider
+
+find the line in your code that says:
+```javascript
+$('.flexslider').flexslider();
+```  
+And change it to say this:
+```javascript
+$('.flexslider').flexslider({ animation : "slide" });
+```  
+Then reload your page.  Notice how your flexslider will now animate new slides in from the right to the left instead of disolving between the two images.  Now change it to say this:
+```javascript
+$('.flexslider').flexslider({ slideshowSpeed : 2000 });
+```  
+Reload that.  Do you notice a difference?
+
+				</section>
+				<section data-markdown>
+## Let's break that down
+```javascript
+	$('.flexslider').flexslider({ slideshowSpeed : 2000 });
+//  |      |             |     ||       |            |  |└ End Parenthesis
+//  |      |             |     ||       |            |  └ End Curly Brackets
+//  |      |             |     ||       |            └ The property has
+//  |      |             |     ||       |               a VALUE of 2000
+//  |      |             |     ||       └ Set the object PROPERTY
+//  |      |             |     ||         'slideshowSpeed'
+//  |      |             |     |└ Curly brackets indicate a JavaScript OBJECT
+//  |      |             |     └ Parenthesis indicate a Function Call
+//  |      |             └ The Flexslider Method 
+//  |      └ The CSS selector '.flexslider' will add any items
+//  |          with the class 'flexslider' to the jQuery wrapped set 
+//  └ The jQuery Function
+```
+
+We pass an **object** as a **parameter** to the flexslider **method** of jQuery.  
+
+The **object** has **properties** and **values** that flexslider will use to override its defaults.
+				</section>
+				<section data-markdown>
+# Objects
+
+An **object** is a JavaScript **data type**, just like a **string** or a *number* is.
+
+```javascript
+var myObject = {
+	animation : "slide",
+	slideshowSpeed : 2000 
+};
+```
+You can assign **objects** to **variables** and then use them the same as other **variables**.
+```javascript
+var myObject = {
+	animation : "slide",
+	slideshowSpeed : 2000 
+};
+$('.flexslider').flexslider(myObject);
+```  
+This creates a flexslider with a sliding animation every 2 seconds.
+
+				</section>
+				<section data-markdown>
+# I Can Haz Responsive?
+
+Flexslider comes out of the box with the ability to be responsive.  Try it now.  resize your browser and watch your images scale as needed.
+
+### Pro Tip:
+
+Make your images only as wide as they NEED to be.  That is, the largest size that you will need in your design.  They will automatically scale down as needed, but if you make them larger then they need to be the file size will be larger and your page will download slower.
+				</section>
+				<section data-markdown>
+# Ok we are done now!
+
+**Exciting** You now have a responsive image rotator on your project page full of the images that you want to show to people.  But why stop there right?  we can do better.  
+
+Let's try a few more cool things.
+				</section>
+				<section data-markdown>
+# The Thumbnail Slider
+
+What if you wanted to have all your images to have a small row of thumbnails along the bottom to help with navigation for the user?
+
+You can [see an example of this here](http://flexslider.woothemes.com/thumbnail-slider.html)
+
+The steps for this are to create 2 seperate flexsliders. 1 is the **carousel**, the thumbnails at the bottom, and the other is the main rotator.
+
+We create both of them and then give the JS the right commands to work for both of them and keep them in sync.
+
+				</section>
+				<section data-markdown>
+# The Randomness
+
+What if we are showing a bunch of slides from different artists and we don't want to show preference to one artist over another?
+
+```javascript
+$('.flexslider').flexslider({ randomize: true });
+```  
+Boom!  impartial.
+				</section>
+				<section data-markdown>
+# Clickable Slides
+
+It is super simple to make your slides able to link to another page, or even another section on the same page.  Let's look at the HTML we are using now:
+```html
+&lt;div id="rotator">
+	&lt;ul class="slides">
+		&lt;li>&lt;img src="content/rotator/image1.jpg" alt="First Slide">&lt;/li>
+		&lt;li>&lt;img src="content/rotator/image2.jpg" alt="Second Slide">&lt;/li>
+		&lt;li>&lt;img src="content/rotator/image3.jpg" alt="Third Slide">&lt;/li>
+	&lt;/ul>
+&lt;/div>
+```
+Now let's just wrap those images in links using the ```&lt;a>``` tag in **HTML**
+
+```html
+&lt;div id="rotator">
+	&lt;ul class="slides">
+		&lt;li>&lt;a href="#section1">&lt;img src="content/rotator/image1.jpg" alt="First Slide">&lt;/a>&lt;/li>
+		&lt;li>&lt;a href="#section2">&lt;img src="content/rotator/image2.jpg" alt="Second Slide">&lt;/a>&lt;/li>
+		&lt;li>&lt;a href="#section3">&lt;img src="content/rotator/image3.jpg" alt="Third Slide">&lt;/a>&lt;/li>
+	&lt;/ul>
+&lt;/div>
+```
+
+
+				</section>
+				<section data-markdown>
+# Something that's not an image?
+
+Flexslider works by rotating between slides *regardless of their content*. So you could easily do something like this:
+```html
+&lt;div id="rotator">
+	&lt;ul class="slides">
+		&lt;li>&lt;p>Lorem ipsum dolor sit amet&lt;/p>&lt;/li>
+		&lt;li>&lt;p>consectetur adipisicing elit.&lt;/p>&lt;/li>
+		&lt;li>&lt;p>Impedit, ullam iste pariatur enim consequuntur.&lt;/p>&lt;/li>
+	&lt;/ul>
+&lt;/div>
+```
+				</section>
+				<section data-markdown>
+# Thank You.
+
+for your time and attention.  We have covered a lot here in our exercise of the mind.  If you have any questions or comments feel free to [hit me up on twitter](http://twitter.com/arrongibson), or [email me](mailto:Arron@InfinityMedia.ca?subject=Hackapalooza+Help).
+
+We will take the rest of the time to work with you on your projects and make sure that we are all comfortable with what we have just learned.
 				</section>
 
 			</div>
