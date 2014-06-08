@@ -752,14 +752,85 @@ Click the big green download button and download the zip file.  Expand that zip 
 
 
 				</section>
-				<section data-markdown> 
-# Title
+				<section>
+<h1>
+	
+Add Flexslider to our project
+</h1>
+
+<p>
+	
+Go to your <strong>
+	
+index.html
+</strong>
+ file on your hackapalooza project in <strong>
+ sublime text</strong> and find this section:
+</p>
+
+
+<pre><code class="HTML">&lt;script src="js/jquery-1.11.1.min.js"&gt;&lt;&#47;&#115;cript&gt;
+&lt;script&gt;
+$(document).ready(function(){
+	// Add all jQuery code here.
+});
+&lt;&#47;&#115;cript&gt;
+</code></pre>
+
+<p>
+	and we are going to put some new code in the middle of this so that it looks like this instead:
+</p>
+<pre><code class="HTML">&lt;script src="js/jquery-1.11.1.min.js"&gt;&lt;&#47;&#115;cript&gt;
+&lt;script src="js/flexslider/jquery.flexslider-min.js"&gt;&lt;&#47;&#115;cript&gt;
+&lt;script&gt;
+$(document).ready(function(){
+	// Add all jQuery code here.
+});
+&lt;&#47;&#115;cript&gt;
+</code></pre>
+				</section>
+				<section> 
+<p>notice the addition of the line:</p>
+<pre><code class="HTML">&lt;script src="js/flexslider/jquery.flexslider-min.js"&gt;&lt;&#47;&#115;cript&gt;
+</code></pre>
+<p> in between: </p>
+<pre><code class="HTML">&lt;script src="js/flexslider/jquery.flexslider-min.js"&gt;&lt;&#47;&#115;cript&gt;</code></pre>
+
+<p> and: </p>
+
+<pre><code class="HTML">&lt;script&gt;
+$(document).ready(function(){
+	// Add all jQuery code here.
+});
+&lt;&#47;&#115;cript&gt;
+</code></pre>
+<p>
+	to make:
+</p>
+<pre><code class="HTML">&lt;script src="js/jquery-1.11.1.min.js"&gt;&lt;&#47;&#115;cript&gt;
+&lt;script src="js/flexslider/jquery.flexslider-min.js"&gt;&lt;&#47;&#115;cript&gt;
+&lt;script&gt;
+$(document).ready(function(){
+	// Add all jQuery code here.
+});
+&lt;&#47;&#115;cript&gt;
+</code></pre>
+
+
 				</section>
 				<section data-markdown> 
-# Title
-				</section>
-				<section data-markdown> 
-# Title
+# Ok Breathe...
+
+You now have averything in place to make your slider. All we have to do after this is:
+
+1. Add the **HTML** needed for the rotator
+2. Trigger flexslider to add new **behavior** to that HTML.
+
+### From this point forward...
+
+we will be writing code on our projects that will be individualized to our own needs.
+
+I will give example **HTML**, **CSS**, **JavaScript** and **jQuery** code but you will need to adapt that code to do *what you want to do for your project*.
 				</section>
 				<section data-markdown> 
 # Title
